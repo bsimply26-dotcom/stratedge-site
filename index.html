@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StratEdge / GCC Market Entry & Growth</title>
+<meta name="description" content="StratEdge is the market entry and growth partner for international brands building a real position in the GCC. We do not just plan the entry. We build it and take it live.">
+
+<!-- Favicon and app icons -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Share preview. When you move to stratedge.ae, change the two absolute URLs below from stratedge.netlify.app to stratedge.ae -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="StratEdge">
+<meta property="og:title" content="StratEdge / GCC Market Entry & Growth">
+<meta property="og:description" content="The market entry and growth partner for international brands building a real position in the GCC. We do not just plan the entry. We build it and take it live.">
+<meta property="og:url" content="https://stratedge.netlify.app/">
+<meta property="og:image" content="https://stratedge.netlify.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="StratEdge / GCC Market Entry & Growth">
+<meta name="twitter:description" content="The market entry and growth partner for international brands building a real position in the GCC.">
+<meta name="twitter:image" content="https://stratedge.netlify.app/og.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111110;
+    --paper:#FFFFFF;
+    --dark-grey:#4F4E4A;
+    --muted-grey:#8A8884;
+    --green:#163B2C;
+    --hairline:#E7E5DD;
+    --maxw:1280px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',Arial,sans-serif;
+    font-weight:400;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(22px,5vw,90px)}
+
+  /* type */
+  .display{font-family:'Archivo',Arial,sans-serif;font-weight:800;text-transform:uppercase}
+  .eyebrow{
+    font-family:'Archivo',Arial,sans-serif;font-weight:700;
+    font-size:11.5px;letter-spacing:0.20em;text-transform:uppercase;
+    color:var(--muted-grey);
+  }
+  h1{font-family:'Archivo',Arial,sans-serif;font-weight:800;text-transform:uppercase;
+    font-size:clamp(40px,8vw,98px);line-height:0.95;letter-spacing:-0.035em}
+  h2{font-family:'Archivo',Arial,sans-serif;font-weight:800;text-transform:uppercase;
+    font-size:clamp(30px,5.5vw,62px);line-height:0.98;letter-spacing:-0.03em}
+  h3{font-family:'Archivo',Arial,sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:clamp(18px,2.2vw,22px);line-height:1.08;letter-spacing:-0.01em}
+  .lead{font-size:clamp(18px,2.2vw,22px);line-height:1.45;color:var(--dark-grey)}
+  .green{color:var(--green)}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--hairline)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .wordmark{font-family:'Archivo',Arial,sans-serif;font-weight:800;font-size:22px;
+    letter-spacing:-0.01em;text-decoration:none;color:var(--ink)}
+  .wordmark .green{color:var(--green)}
+  .nav-cta{font-family:'Archivo',Arial,sans-serif;font-weight:600;font-size:12px;
+    letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;color:var(--ink);
+    border:1px solid var(--ink);padding:11px 20px;transition:background .18s,color .18s}
+  .nav-cta:hover{background:var(--ink);color:var(--paper)}
+
+  /* sections */
+  section{padding:clamp(58px,10vw,120px) 0}
+  .rule{height:1px;background:var(--hairline);border:0}
+
+  /* hero */
+  .hero{position:relative;min-height:clamp(540px,82vh,860px);display:flex;align-items:center;
+    background:
+      linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.90) 30%, rgba(255,255,255,0.50) 50%, rgba(255,255,255,0.12) 68%, rgba(255,255,255,0) 80%),
+      url("skyline.jpg");
+    background-size:cover;background-position:center right}
+  .hero .wrap{width:100%}
+  .hero h1{max-width:15ch}
+  .hero .lead{margin-top:32px;max-width:44ch}
+  @media(max-width:640px){
+    .hero{min-height:0;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.92) 42%, rgba(255,255,255,0.62) 100%),
+        url("skyline.jpg");
+      background-size:cover;background-position:center}
+  }
+  .btn{display:inline-block;margin-top:44px;font-family:'Archivo',Arial,sans-serif;
+    font-weight:600;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+    text-decoration:none;color:var(--paper);background:var(--ink);padding:16px 30px;
+    transition:background .18s}
+  .btn:hover{background:var(--green)}
+  .btn-ghost{color:var(--ink);background:transparent;border:1px solid var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+
+  /* problem */
+  .problem-grid{display:grid;grid-template-columns:1fr;gap:40px;margin-top:8px}
+  @media(min-width:900px){.problem-grid{grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:start}}
+  .problem-grid p+p{margin-top:20px}
+
+  /* work */
+  .work-head{margin-bottom:48px}
+  .work-2col{display:grid;grid-template-columns:1fr;gap:40px;align-items:stretch}
+  @media(min-width:960px){.work-2col{grid-template-columns:1.12fr 0.88fr;gap:64px}}
+  .work-media{min-height:300px;border:1px solid var(--hairline);
+    background:url("boardroom.jpg") center/cover no-repeat}
+  .offers{display:grid;grid-template-columns:1fr;gap:0}
+  .offer{display:grid;grid-template-columns:auto auto 1fr;gap:20px;
+    padding:30px 0;border-top:1px solid var(--hairline);align-items:start}
+  .offer:last-child{border-bottom:1px solid var(--hairline)}
+  .offer-icon{width:46px;height:46px;flex:none;border:1px solid var(--hairline);
+    display:flex;align-items:center;justify-content:center}
+  .offer-icon svg{width:24px;height:24px;display:block}
+  .offer-num{font-family:'Archivo',Arial,sans-serif;font-weight:800;
+    font-size:clamp(24px,3vw,34px);line-height:1;color:var(--green)}
+  .offer h3{margin-bottom:10px}
+  .offer p{max-width:52ch;color:var(--dark-grey)}
+
+  /* method strip - white */
+  .method h2{max-width:14ch}
+  .method .lead{margin-top:20px;max-width:46ch}
+  .stages{position:relative;display:grid;grid-template-columns:1fr;gap:44px;margin-top:64px}
+  @media(min-width:900px){.stages{grid-template-columns:repeat(5,1fr);gap:24px}}
+  .stage{position:relative;z-index:1}
+  @media(min-width:900px){
+    .stage:not(:last-child)::after{content:"";position:absolute;top:28px;left:56px;
+      width:calc(100% - 32px);height:1px;background:var(--hairline);z-index:0}
+  }
+  .stage-icon{width:56px;height:56px;border-radius:50%;background:var(--green);
+    display:flex;align-items:center;justify-content:center;margin-bottom:24px;position:relative;z-index:1}
+  .stage-icon svg{width:24px;height:24px;display:block}
+  .stage-num{font-family:'Archivo',Arial,sans-serif;font-weight:800;font-size:13px;
+    letter-spacing:0.12em;color:var(--green);margin-bottom:8px}
+  .stage h3{margin-bottom:12px}
+  .stage p{color:var(--dark-grey);font-size:15px;line-height:1.5;max-width:30ch}
+
+  /* scroll reveal */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(min-width:900px){
+    .stages .stage:nth-child(2){transition-delay:.08s}
+    .stages .stage:nth-child(3){transition-delay:.16s}
+    .stages .stage:nth-child(4){transition-delay:.24s}
+    .stages .stage:nth-child(5){transition-delay:.32s}
+  }
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+  /* track record - black */
+  .record{position:relative;color:var(--paper);
+    background:
+      linear-gradient(90deg, rgba(17,17,16,0.95) 0%, rgba(17,17,16,0.86) 42%, rgba(17,17,16,0.60) 100%),
+      url("map.jpg");
+    background-size:cover;background-position:center}
+  .record .eyebrow{color:var(--muted-grey)}
+  .record h2{color:var(--paper);max-width:20ch}
+  .record-lead{color:var(--muted-grey);margin-top:24px;max-width:46ch;
+    font-size:clamp(18px,2.2vw,22px);line-height:1.45}
+  .stats{display:grid;grid-template-columns:1fr;gap:48px;margin-top:72px}
+  @media(min-width:760px){.stats{grid-template-columns:repeat(3,1fr)}}
+  .stat-num{font-family:'Archivo',Arial,sans-serif;font-weight:800;
+    font-size:clamp(44px,7vw,76px);line-height:1;letter-spacing:-0.02em}
+  .stat-label{font-family:'Archivo',Arial,sans-serif;font-weight:700;font-size:11.5px;
+    letter-spacing:0.20em;text-transform:uppercase;color:var(--muted-grey);margin-top:16px}
+  .stat-note{color:var(--muted-grey);font-size:15px;line-height:1.5;margin-top:12px;max-width:34ch}
+  .record-foot{margin-top:80px;padding-top:40px;border-top:1px solid #2a2a27}
+  .exp-label{color:var(--muted-grey)}
+  .exp-list{font-family:'Archivo',Arial,sans-serif;font-weight:700;text-transform:uppercase;
+    font-size:clamp(16px,2.4vw,26px);line-height:1.3;letter-spacing:-0.01em;
+    color:var(--paper);margin-top:20px;max-width:24ch}
+
+  /* image placeholder slot (swap for real <img> before launch) */
+  .imgslot{position:relative;background:var(--hairline);overflow:hidden;
+    background-size:cover;background-position:center}
+  .imgslot[data-label]::after{content:attr(data-label);position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;
+    font-family:'Archivo',Arial,sans-serif;font-weight:700;font-size:10.5px;
+    letter-spacing:0.18em;text-transform:uppercase;color:var(--muted-grey)}
+
+  /* selected work - image cards */
+  .proof-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:56px}
+  @media(min-width:760px){.proof-grid{grid-template-columns:repeat(3,1fr)}}
+  .proof{border:1px solid var(--hairline);display:flex;flex-direction:column}
+  .proof .imgslot{aspect-ratio:16/10}
+  .proof-body{padding:24px}
+  .proof .eyebrow{color:var(--green)}
+  .proof h3{margin:12px 0 10px}
+  .proof p{color:var(--dark-grey)}
+
+  /* how we work - text + image row */
+  .how-2col{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
+  @media(min-width:960px){.how-2col{grid-template-columns:1fr 1fr;gap:64px}}
+  .how h2{max-width:16ch}
+  .how .lead{margin-top:28px;max-width:48ch}
+  .how-promise{font-family:'Archivo',Arial,sans-serif;font-weight:800;text-transform:uppercase;
+    font-size:clamp(20px,2.6vw,30px);line-height:1.1;letter-spacing:-0.02em;margin-top:36px;max-width:24ch}
+  .how-images{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .how-images .imgslot{aspect-ratio:3/4}
+
+  /* closing - green field */
+  .closing{background:var(--green);color:var(--paper);text-align:left}
+  .closing h2{color:var(--paper);max-width:18ch}
+  .closing .btn{background:var(--paper);color:var(--ink)}
+  .closing .btn:hover{background:var(--ink);color:var(--paper)}
+
+  /* contact */
+  .contact-grid{display:grid;grid-template-columns:1fr;gap:48px}
+  @media(min-width:900px){.contact-grid{grid-template-columns:0.9fr 1.1fr;gap:80px;align-items:start}}
+  .contact h2{max-width:14ch}
+  .contact .lead{margin-top:24px;max-width:40ch}
+  .contact-direct{margin-top:32px}
+  .contact-direct a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--green)}
+  form{display:grid;gap:20px}
+  .field label{display:block;font-family:'Archivo',Arial,sans-serif;font-weight:700;
+    font-size:11.5px;letter-spacing:0.20em;text-transform:uppercase;color:var(--muted-grey);
+    margin-bottom:10px}
+  .field input,.field textarea{width:100%;font-family:'Inter',Arial,sans-serif;font-size:16px;
+    color:var(--ink);background:var(--paper);border:0;border-bottom:1px solid var(--ink);
+    padding:10px 0;transition:border-color .18s}
+  .field input:focus,.field textarea:focus{outline:0;border-color:var(--green)}
+  .field textarea{resize:vertical;min-height:100px}
+  form button{justify-self:start;margin-top:8px;font-family:'Archivo',Arial,sans-serif;
+    font-weight:600;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--paper);
+    background:var(--ink);border:0;padding:16px 30px;cursor:pointer;transition:background .18s}
+  form button:hover{background:var(--green)}
+  .form-note{font-size:13px;color:var(--muted-grey);margin-top:4px}
+
+  /* footer */
+  footer{background:var(--ink);color:var(--muted-grey);padding:48px 0}
+  .foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+  .foot .wordmark{color:var(--paper)}
+  .foot .wordmark .green{color:var(--paper)}
+  .foot a{color:var(--muted-grey);text-decoration:none}
+  .foot a:hover{color:var(--paper)}
+  .foot-tag{font-size:14px}
+
+  :focus-visible{outline:2px solid var(--green);outline-offset:3px}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="wordmark">Strat<span class="green">Edge</span></a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow" style="margin-bottom:28px">GCC Market Entry &amp; Growth</div>
+      <h1>Most brands get the Gulf wrong. We get it <span class="green">right</span>.</h1>
+      <p class="lead">StratEdge is the market entry and growth partner for international brands building a real position in the GCC. Any sector, product or service. We do not just plan the entry. We build it and take it live.</p>
+      <a href="#contact" class="btn">Start a conversation</a>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- THE PROBLEM -->
+  <section class="problem">
+    <div class="wrap">
+      <div class="eyebrow" style="margin-bottom:36px">The problem</div>
+      <div class="problem-grid">
+        <h2>Brands treat the Gulf as one market. It is not.</h2>
+        <div>
+          <p class="lead">Most brands arrive without a local position, spend on the wrong channels, and pick the wrong partners. By the time it shows in the numbers, the budget is gone and the first impression is spent.</p>
+          <p class="lead"><strong style="color:var(--ink);font-weight:500">Entering or already here, the hard part is the same. Making it work on the ground.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE WORK -->
+  <section class="work" style="background:var(--paper);border-top:1px solid var(--hairline)">
+    <div class="wrap">
+      <div class="work-head">
+        <div class="eyebrow" style="margin-bottom:20px">The work</div>
+        <h2>Three ways we work.</h2>
+      </div>
+      <div class="work-2col">
+        <div class="offers">
+          <div class="offer">
+            <div class="offer-num">01</div>
+            <div class="offer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#111110" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4v16h16"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+            <div class="offer-body">
+              <h3>Gulf Entry Diagnostic</h3>
+              <p>Where you stand before you spend. Target-market ranking, category reality, and the regulatory picture, ending in a clear go or no-go.</p>
+            </div>
+          </div>
+          <div class="offer">
+            <div class="offer-num">02</div>
+            <div class="offer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#111110" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5 13 13l-4.5 2.5L11 11z"/></svg></div>
+            <div class="offer-body">
+              <h3>Market Entry &amp; Launch</h3>
+              <p>Positioning, the partner and channel map, and a localised brand, website and social presence. Built and taken to launch.</p>
+            </div>
+          </div>
+          <div class="offer">
+            <div class="offer-num">03</div>
+            <div class="offer-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#111110" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5"/><path d="M16 6.4a3 3 0 0 1 0 5.9"/><path d="M17.5 14.2c2.1.5 3.5 2.3 3.5 4.8"/></svg></div>
+            <div class="offer-body">
+              <h3>Embedded Growth Advisory</h3>
+              <p>An ongoing growth partner once you are live, owning the numbers month to month and the path to the next market.</p>
+            </div>
+          </div>
+        </div>
+        <div class="work-media" role="img" aria-label="Boardroom overlooking the Dubai skyline"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE METHOD (white) -->
+  <section class="method" style="background:var(--paper);border-top:1px solid var(--hairline)">
+    <div class="wrap">
+      <div class="eyebrow" style="margin-bottom:20px">The method</div>
+      <h2>One method. Five stages.</h2>
+      <p class="lead">The StratEdge Market Entry Method&trade;. Every engagement runs on it.</p>
+
+      <div class="stages">
+        <div class="stage reveal">
+          <div class="stage-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+          </div>
+          <div class="stage-num">01</div>
+          <h3>Diagnose</h3>
+          <p>Which GCC markets, the category reality, and a clear go or no-go.</p>
+        </div>
+        <div class="stage reveal">
+          <div class="stage-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="stage-num">02</div>
+          <h3>Position</h3>
+          <p>Local positioning, regional pricing, and the message adapted to the market.</p>
+        </div>
+        <div class="stage reveal">
+          <div class="stage-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><line x1="8.2" y1="10.9" x2="15.7" y2="7.1"/><line x1="8.2" y1="13.1" x2="15.7" y2="16.9"/></svg>
+          </div>
+          <div class="stage-num">03</div>
+          <h3>Route</h3>
+          <p>Route to market, the partner and gatekeeper map, and channel design.</p>
+        </div>
+        <div class="stage reveal">
+          <div class="stage-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22 11 13 2 9 Z"/></svg>
+          </div>
+          <div class="stage-num">04</div>
+          <h3>Launch</h3>
+          <p>Entity, team, and the first 90 days. Live in market.</p>
+        </div>
+        <div class="stage reveal">
+          <div class="stage-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="13"/><line x1="12" y1="20" x2="12" y2="8"/><line x1="18" y1="20" x2="18" y2="4"/></svg>
+          </div>
+          <div class="stage-num">05</div>
+          <h3>Govern</h3>
+          <p>The KPI system, optimisation against the numbers, and the next market.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACK RECORD (black) -->
+  <section class="record">
+    <div class="wrap">
+      <div class="eyebrow" style="margin-bottom:24px">The record</div>
+      <h2>The proof is in the numbers.</h2>
+      <p class="record-lead">18+ years, built from zero every time.</p>
+
+      <div class="stats">
+        <div class="stat reveal">
+          <div class="stat-num">11</div>
+          <div class="stat-label">Markets entered</div>
+          <p class="stat-note">Built from zero across the GCC, Europe, and Asia.</p>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-num">$200M+</div>
+          <div class="stat-label">In deals led</div>
+          <p class="stat-note">M&amp;A and partnerships across an 18-year career.</p>
+        </div>
+        <div class="stat reveal">
+          <div class="stat-num">230%</div>
+          <div class="stat-label">Growth delivered</div>
+          <p class="stat-note">Year on year, through integrated brand and commercial strategy.</p>
+        </div>
+      </div>
+
+      <div class="record-foot">
+        <div class="eyebrow exp-label">Experience across</div>
+        <div class="exp-list">Ultra-luxury automotive. Volume automotive. Food retail. Financial services. Government.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF STATEMENTS (white, no names) -->
+  <section class="proof-section">
+    <div class="wrap">
+      <div class="eyebrow" style="margin-bottom:8px">Selected work</div>
+      <h2 style="max-width:18ch">Idea to operating business.</h2>
+      <div class="proof-grid">
+        <!-- To add a photo: replace the <div class="imgslot" ...></div> with the image inline style, e.g. style="background-image:url('selected-1.jpg')" and delete the data-label attribute -->
+        <div class="proof">
+          <div class="imgslot" data-label="Branded product image"></div>
+          <div class="proof-body">
+            <div class="eyebrow">Branded consumer IP</div>
+            <h3>Concept to operation</h3>
+            <p>Consumer products built under international licence, taken from concept to a running business.</p>
+          </div>
+        </div>
+        <div class="proof">
+          <div class="imgslot" data-label="Premium fashion image"></div>
+          <div class="proof-body">
+            <div class="eyebrow">Premium fashion</div>
+            <h3>Positioned and launched</h3>
+            <p>Positioning, e-commerce, and B2B market entry, proven to succeed in a crowded category.</p>
+          </div>
+        </div>
+        <div class="proof">
+          <div class="imgslot" data-label="E-commerce image"></div>
+          <div class="proof-body">
+            <div class="eyebrow">E-commerce retail</div>
+            <h3>Built and taken live</h3>
+            <p>Operations built from the ground up and taken to launch, then grown against the numbers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK (white) -->
+  <section class="how" style="background:var(--paper);border-top:1px solid var(--hairline)">
+    <div class="wrap">
+      <div class="how-2col">
+        <div class="how-text">
+          <div class="eyebrow" style="margin-bottom:20px">How we work</div>
+          <h2>We bring it to life.</h2>
+          <p class="lead">Strategy is common. Execution is rare. We do both. Product or service, any category, we have the operational know-how to build it and run it.</p>
+          <p class="how-promise">No juniors. No handoff. The people who win the work do the work.</p>
+        </div>
+        <div class="how-images">
+          <div class="imgslot" data-label="Team image"></div>
+          <div class="imgslot" data-label="Build image"></div>
+          <div class="imgslot" data-label="Results image"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING (green field) -->
+  <section class="closing">
+    <div class="wrap">
+      <div class="eyebrow" style="color:rgba(255,255,255,0.6);margin-bottom:28px">Do not do it alone</div>
+      <h2>Winning the Gulf takes more than a plan.</h2>
+      <a href="#contact" class="btn">Start a conversation</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact" style="border-top:1px solid var(--hairline)">
+    <div class="wrap">
+      <div class="contact-grid">
+        <div>
+          <div class="eyebrow" style="margin-bottom:20px">Contact</div>
+          <h2>Tell us where you want to win.</h2>
+          <p class="lead">A short note on your brand and the market is enough to start.</p>
+          <div class="contact-direct lead">
+            <a href="mailto:hello@stratedge.ae">hello@stratedge.ae</a><br>
+            Dubai, UAE
+          </div>
+        </div>
+
+        <!-- Formspree: replace YOUR_FORM_ID with the endpoint from your Formspree dashboard -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company">
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="message">What you are trying to do</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit">Send</button>
+          <p class="form-note">We reply to every serious enquiry within two working days.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="wordmark">Strat<span class="green">Edge</span></a>
+    <div class="foot-tag">GCC Market Entry &amp; Growth</div>
+    <div class="foot-tag"><a href="mailto:hello@stratedge.ae">hello@stratedge.ae</a> / Dubai, UAE</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce || !('IntersectionObserver' in window)){
+    els.forEach(function(e){ e.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
+
+</body>
+</html>
