@@ -10,19 +10,19 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-<!-- Share preview. When you move to stratedge.ae, change the two absolute URLs below from stratedge.netlify.app to stratedge.ae -->
+<!-- Share preview. When stratedge.ae goes live, change the three absolute URLs below from stratedgegrowth.netlify.app to stratedge.ae -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="StratEdge">
 <meta property="og:title" content="StratEdge / GCC Market Entry & Growth">
 <meta property="og:description" content="The market entry and growth partner for international brands building a real position in the GCC. We do not just plan the entry. We build it and take it live.">
-<meta property="og:url" content="https://stratedge.netlify.app/">
-<meta property="og:image" content="https://stratedge.netlify.app/og.png">
+<meta property="og:url" content="https://stratedgegrowth.netlify.app/">
+<meta property="og:image" content="https://stratedgegrowth.netlify.app/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="StratEdge / GCC Market Entry & Growth">
 <meta name="twitter:description" content="The market entry and growth partner for international brands building a real position in the GCC.">
-<meta name="twitter:image" content="https://stratedge.netlify.app/og.png">
+<meta name="twitter:image" content="https://stratedgegrowth.netlify.app/og.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,21 +83,51 @@
   section{padding:clamp(58px,10vw,120px) 0}
   .rule{height:1px;background:var(--hairline);border:0}
 
-  /* hero */
-  .hero{position:relative;min-height:clamp(540px,82vh,860px);display:flex;align-items:center;
-    background:
-      linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.90) 30%, rgba(255,255,255,0.50) 50%, rgba(255,255,255,0.12) 68%, rgba(255,255,255,0) 80%),
-      url("skyline.jpg");
-    background-size:cover;background-position:center right}
-  .hero .wrap{width:100%}
-  .hero h1{max-width:15ch}
-  .hero .lead{margin-top:32px;max-width:44ch}
+  /* hero rotator */
+  .hero{position:relative;overflow:hidden}
+  .hero-slide{min-height:clamp(540px,82vh,860px);display:flex;align-items:center;
+    opacity:0;visibility:hidden;transition:opacity .9s ease,visibility 0s linear .9s;
+    background-size:cover;background-position:center}
+  .hero-slide.active{opacity:1;visibility:visible;transition:opacity .9s ease,visibility 0s}
+  .hs-1{position:relative}
+  .hs-2,.hs-3{position:absolute;inset:0}
+  .hero-slide .wrap{width:100%}
+  .hero-slide h1{max-width:15ch}
+  .hero-slide .lead{margin-top:32px;max-width:44ch}
+  /* slide 1: light skyline, ink type, side scrim */
+  .hs-1{background-image:
+    linear-gradient(90deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.90) 30%, rgba(255,255,255,0.50) 50%, rgba(255,255,255,0.12) 68%, rgba(255,255,255,0) 80%),
+    url("hero-1.jpg");background-position:center right}
+  /* slides 2 and 3: dark fields, white type */
+  .hs-2{background-image:
+    linear-gradient(90deg, rgba(17,17,16,0.92) 0%, rgba(17,17,16,0.80) 42%, rgba(17,17,16,0.45) 100%),
+    url("hero-2.jpg")}
+  .hs-3{background-image:
+    linear-gradient(90deg, rgba(17,17,16,0.90) 0%, rgba(17,17,16,0.72) 45%, rgba(17,17,16,0.40) 100%),
+    url("hero-3.jpg")}
+  .hs-2 h1,.hs-3 h1{color:var(--paper)}
+  .hs-2 .eyebrow,.hs-3 .eyebrow{color:rgba(255,255,255,0.7)}
+  .hs-2 .btn,.hs-3 .btn{background:var(--paper);color:var(--ink)}
+  .hs-2 .btn:hover,.hs-3 .btn:hover{background:var(--green);color:var(--paper)}
+  /* dots */
+  .hero-dots{position:absolute;z-index:3;left:0;right:0;bottom:clamp(22px,4vh,40px);
+    display:flex;gap:12px;justify-content:center}
+  .hero-dots button{width:34px;height:3px;border:0;padding:0;cursor:pointer;
+    background:rgba(17,17,16,0.25);transition:background .2s}
+  .hero-dots button.active{background:var(--ink)}
+  .hero.dark-dots .hero-dots button{background:rgba(255,255,255,0.35)}
+  .hero.dark-dots .hero-dots button.active{background:var(--paper)}
   @media(max-width:640px){
-    .hero{min-height:0;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.92) 42%, rgba(255,255,255,0.62) 100%),
-        url("skyline.jpg");
-      background-size:cover;background-position:center}
+    .hero-slide{min-height:clamp(520px,86vh,760px);background-position:center}
+    .hs-1{background-image:
+      linear-gradient(180deg, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.90) 45%, rgba(255,255,255,0.55) 100%),
+      url("hero-1.jpg")}
+    .hs-2{background-image:
+      linear-gradient(180deg, rgba(17,17,16,0.88) 0%, rgba(17,17,16,0.72) 55%, rgba(17,17,16,0.55) 100%),
+      url("hero-2.jpg")}
+    .hs-3{background-image:
+      linear-gradient(180deg, rgba(17,17,16,0.86) 0%, rgba(17,17,16,0.70) 55%, rgba(17,17,16,0.52) 100%),
+      url("hero-3.jpg")}
   }
   .btn{display:inline-block;margin-top:44px;font-family:'Archivo',Arial,sans-serif;
     font-weight:600;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
@@ -185,10 +215,8 @@
   /* image placeholder slot (swap for real <img> before launch) */
   .imgslot{position:relative;background:var(--hairline);overflow:hidden;
     background-size:cover;background-position:center}
-  .imgslot[data-label]::after{content:attr(data-label);position:absolute;inset:0;
-    display:flex;align-items:center;justify-content:center;text-align:center;padding:8px;
-    font-family:'Archivo',Arial,sans-serif;font-weight:700;font-size:10.5px;
-    letter-spacing:0.18em;text-transform:uppercase;color:var(--muted-grey)}
+  /* Empty slots render as clean grey panels. The data-label in the HTML is a code-side note for whoever adds the images and is NOT shown to visitors. To fill a slot: set style="background-image:url('selected-1.jpg')" on the imgslot div. */
+  .imgslot[data-label]::after{content:none}
 
   /* selected work - image cards */
   .proof-grid{display:grid;grid-template-columns:1fr;gap:28px;margin-top:56px}
@@ -262,13 +290,34 @@
 
 <main id="top">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="eyebrow" style="margin-bottom:28px">GCC Market Entry &amp; Growth</div>
-      <h1>Most brands get the Gulf wrong. We get it <span class="green">right</span>.</h1>
-      <p class="lead">StratEdge is the market entry and growth partner for international brands building a real position in the GCC. Any sector, product or service. We do not just plan the entry. We build it and take it live.</p>
-      <a href="#contact" class="btn">Start a conversation</a>
+  <!-- HERO ROTATOR -->
+  <section class="hero" id="hero" aria-roledescription="carousel" aria-label="StratEdge statements">
+    <div class="hero-slide hs-1 active">
+      <div class="wrap">
+        <div class="eyebrow" style="margin-bottom:28px">GCC Market Entry &amp; Growth</div>
+        <h1>Most brands get the Gulf wrong. We get it <span class="green">right</span>.</h1>
+        <p class="lead">StratEdge is the market entry and growth partner for international brands building a real position in the GCC. Any sector, product or service. We do not just plan the entry. We build it and take it live.</p>
+        <a href="#contact" class="btn">Start a conversation</a>
+      </div>
+    </div>
+    <div class="hero-slide hs-2">
+      <div class="wrap">
+        <div class="eyebrow" style="margin-bottom:28px">GCC Market Entry &amp; Growth</div>
+        <h1>Local insight. Market access. Lasting growth.</h1>
+        <a href="#contact" class="btn">Start a conversation</a>
+      </div>
+    </div>
+    <div class="hero-slide hs-3">
+      <div class="wrap">
+        <div class="eyebrow" style="margin-bottom:28px">GCC Market Entry &amp; Growth</div>
+        <h1>Plans don&rsquo;t build markets. Execution does.</h1>
+        <a href="#contact" class="btn">Start a conversation</a>
+      </div>
+    </div>
+    <div class="hero-dots" role="tablist" aria-label="Choose statement">
+      <button class="active" type="button" aria-label="Statement 1" aria-selected="true"></button>
+      <button type="button" aria-label="Statement 2" aria-selected="false"></button>
+      <button type="button" aria-label="Statement 3" aria-selected="false"></button>
     </div>
   </section>
 
@@ -419,7 +468,7 @@
       <div class="proof-grid">
         <!-- To add a photo: replace the <div class="imgslot" ...></div> with the image inline style, e.g. style="background-image:url('selected-1.jpg')" and delete the data-label attribute -->
         <div class="proof">
-          <div class="imgslot" data-label="Branded product image"></div>
+          <div class="imgslot" style="background-image:url('selected-1.jpg')"></div>
           <div class="proof-body">
             <div class="eyebrow">Branded consumer IP</div>
             <h3>Concept to operation</h3>
@@ -427,7 +476,7 @@
           </div>
         </div>
         <div class="proof">
-          <div class="imgslot" data-label="Premium fashion image"></div>
+          <div class="imgslot" style="background-image:url('selected-2.jpg')"></div>
           <div class="proof-body">
             <div class="eyebrow">Premium fashion</div>
             <h3>Positioned and launched</h3>
@@ -435,7 +484,7 @@
           </div>
         </div>
         <div class="proof">
-          <div class="imgslot" data-label="E-commerce image"></div>
+          <div class="imgslot" style="background-image:url('selected-3.jpg')"></div>
           <div class="proof-body">
             <div class="eyebrow">E-commerce retail</div>
             <h3>Built and taken live</h3>
@@ -457,9 +506,9 @@
           <p class="how-promise">No juniors. No handoff. The people who win the work do the work.</p>
         </div>
         <div class="how-images">
-          <div class="imgslot" data-label="Team image"></div>
-          <div class="imgslot" data-label="Build image"></div>
-          <div class="imgslot" data-label="Results image"></div>
+          <div class="imgslot" style="background-image:url('how-1.jpg')"></div>
+          <div class="imgslot" style="background-image:url('how-2.jpg')"></div>
+          <div class="imgslot" style="background-image:url('how-3.jpg')"></div>
         </div>
       </div>
     </div>
@@ -488,8 +537,8 @@
           </div>
         </div>
 
-        <!-- Formspree: replace YOUR_FORM_ID with the endpoint from your Formspree dashboard -->
-        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <!-- Formspree: live endpoint -->
+        <form action="https://formspree.io/f/xojgepeb" method="POST">
           <div class="field">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required>
@@ -537,6 +586,42 @@
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
   els.forEach(function(e){ io.observe(e); });
+})();
+</script>
+
+<script>
+(function(){
+  var hero = document.getElementById('hero');
+  if(!hero) return;
+  var slides = [].slice.call(hero.querySelectorAll('.hero-slide'));
+  var dots = [].slice.call(hero.querySelectorAll('.hero-dots button'));
+  if(slides.length < 2) return;
+  var i = 0, timer = null, DELAY = 6000;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function show(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function(s, x){ s.classList.toggle('active', x === i); });
+    dots.forEach(function(d, x){
+      d.classList.toggle('active', x === i);
+      d.setAttribute('aria-selected', x === i ? 'true' : 'false');
+    });
+    hero.classList.toggle('dark-dots', i !== 0);
+  }
+  function next(){ show(i + 1); }
+  function start(){ if(reduce) return; stop(); timer = setInterval(next, DELAY); }
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+
+  dots.forEach(function(d, x){
+    d.addEventListener('click', function(){ show(x); start(); });
+  });
+  hero.addEventListener('mouseenter', stop);
+  hero.addEventListener('mouseleave', start);
+  hero.addEventListener('focusin', stop);
+  hero.addEventListener('focusout', start);
+
+  show(0);
+  start();
 })();
 </script>
 
