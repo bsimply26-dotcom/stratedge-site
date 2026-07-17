@@ -283,6 +283,68 @@
 
   :focus-visible{outline:2px solid var(--green);outline-offset:3px}
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+  /* ===== MOBILE COMPRESSION — placed last so it wins over base component rules ===== */
+  @media(max-width:640px){
+    section{padding:32px 0}
+
+    /* hero: shorter, tighter crop (lead already removed) */
+    .hero-slide{min-height:clamp(420px,60vh,540px);padding-top:40px;align-items:flex-start}
+    .hero-slide h1{font-size:clamp(30px,8vw,44px)}
+    .hs-1{background-position:center 55%}
+    .hs-2,.hs-3{background-position:center}
+    .btn{margin-top:30px}
+
+    /* THE WORK — collapse each offer to a tappable heading */
+    .work-head{margin-bottom:18px}
+    .offer{grid-template-columns:auto 1fr auto;gap:14px;padding:18px 0;align-items:center;cursor:pointer}
+    .offer-icon{display:none}
+    .offer-num{font-size:22px}
+    .offer-body{grid-column:2}
+    .offer h3{margin-bottom:0}
+    .offer p{display:none;margin-top:12px;max-width:none}
+    .offer.open p{display:block}
+    .offer::after{content:"+";grid-column:3;align-self:center;justify-self:end;
+      font-family:'Archivo',Arial,sans-serif;font-weight:700;font-size:22px;line-height:1;
+      color:var(--muted-grey);transition:transform .2s}
+    .offer.open::after{transform:rotate(45deg)}
+    .work-media{min-height:190px;margin-top:8px}
+
+    /* METHOD — compact rows, five stages fit the screen */
+    .method .lead{margin-top:12px}
+    .stages{margin-top:22px;gap:0}
+    .stage{display:grid;grid-template-columns:34px 1fr;column-gap:14px;
+      padding:13px 0;border-top:1px solid var(--hairline);align-items:center}
+    .stage:last-child{border-bottom:1px solid var(--hairline)}
+    .stage-icon{width:34px;height:34px;margin-bottom:0;grid-column:1;grid-row:1 / span 2}
+    .stage-icon svg{width:15px;height:15px}
+    .stage-num{display:none}
+    .stage h3{margin-bottom:0;grid-column:2;grid-row:1;align-self:end}
+    .stage p{font-size:13px;line-height:1.4;max-width:none;margin:0;grid-column:2;grid-row:2;align-self:start}
+
+    /* SELECTED WORK + HOW WE WORK */
+    .proof-grid{margin-top:22px}
+    .how-2col{gap:26px}
+    .how .lead{margin-top:16px}
+    .how-promise{margin-top:22px}
+    .how-images{grid-template-columns:1fr;gap:10px}
+    .how-images .imgslot{aspect-ratio:16/10}
+
+    /* THE RECORD — compact */
+    .record h2{max-width:none}
+    .record-lead{margin-top:14px}
+    .stats{margin-top:26px;gap:24px}
+    .stat-num{font-size:clamp(40px,11vw,52px)}
+    .stat-label{margin-top:8px}
+    .stat-note{margin-top:8px}
+    .record-foot{margin-top:30px;padding-top:24px}
+    .exp-list{margin-top:16px;font-size:clamp(15px,4.6vw,20px);gap:6px 16px}
+
+    /* CONTACT */
+    .contact .lead{margin-top:16px}
+    .contact-direct{margin-top:18px}
+    form{gap:16px}
+  }
 </style>
 </head>
 <body>
@@ -626,6 +688,27 @@
 
   show(0);
   start();
+})();
+</script>
+
+<script>
+(function(){
+  var mq = window.matchMedia('(max-width:640px)');
+  var offers = [].slice.call(document.querySelectorAll('.offer'));
+  offers.forEach(function(o){
+    o.setAttribute('role','button');
+    o.setAttribute('tabindex','0');
+    o.setAttribute('aria-expanded','false');
+    function toggle(){
+      if(!mq.matches) return;
+      var open = o.classList.toggle('open');
+      o.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    o.addEventListener('click', toggle);
+    o.addEventListener('keydown', function(e){
+      if(mq.matches && (e.key === 'Enter' || e.key === ' ')){ e.preventDefault(); toggle(); }
+    });
+  });
 })();
 </script>
 
